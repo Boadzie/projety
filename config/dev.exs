@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :projety, Projety.Repo,
   username: "postgres",
-  password: System.get_env("PASSWORD")
+  password: System.get_env("PASSWORD"),
   hostname: "localhost",
   database: "projety_dev",
   stacktrace: true,
