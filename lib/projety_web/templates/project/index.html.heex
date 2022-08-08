@@ -1,0 +1,36 @@
+<section class="flex flex-col justify-center items-center min-h-screen mx-24">
+  <h1 class="text-5xl mb-5 text-center uppercase text-gray-700">Projects</h1>
+  <div class="overflow-x-auto relative">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-600 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr class="text-lg">
+          <th class="py-3 px-6">Title</th>
+          <th class="py-3 px-6">Description</th>
+          <th class="py-3 px-6">Start date</th>
+          <th class="py-3 px-6">End date</th>
+          <th class="py-3 px-6">Budget</th>
+          <th class="py-3 px-6"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for project <- @projects do %>
+          <tr class="bg-white border-b dark:bg-gray-800 font-medium dark:border-gray-700">
+            <td class="py-4 px-6 text-md font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= project.title %></td>
+            <td class="py-4 px-6"><%= project.description %></td>
+            <td class="py-4 px-6"><%= project.start_date %></td>
+            <td class="py-4 px-6"><%= project.end_date %></td>
+            <td class="py-4 px-6">$<%= project.budget %></td>
+            <td class="py-4 px-6">
+              <span><%= link "Show", to: Routes.project_path(@conn, :show, project), class: "bg-sky-400 text-white p-2" %></span>
+              <span><%= link "Edit", to: Routes.project_path(@conn, :edit, project), class: "bg-green-400 text-white p-2" %></span>
+              <span><%= link "Delete", to: Routes.project_path(@conn, :delete, project), method: :delete, data: [confirm: "Are you sure?"], class: "bg-red-400 text-white p-2" %></span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="mt-2 inline-flex justify-start items-start">
+      <%= link "New Project", to: Routes.project_path(@conn, :new), class: "mt-2 bg-blue-400 text-white p-2 rounded-sm font-bold" %>
+    </div>
+  </div>
+</section>
