@@ -1,31 +1,33 @@
-<.form let={f} for={@changeset} action={@action}>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
+<section class="container mx-auto px-14">
+  <.form class="m-auto w-3/6" let={f} for={@changeset} action={@action}>
+    <%= if @changeset.action do %>
+      <div class="alert alert-danger">
+        <p>Oops, something went wrong! Please check the errors below.</p>
+      </div>
+    <% end %>
+    <div class="form-control">
+      <%= text_input f, :title, class: "focus:outline-none mb-8 input input-bordered input-primary rounded-sm w-full", placeholder: "Title ..." %>
+      <%= error_tag f, :title %>
     </div>
-  <% end %>
-
-  <%= label f, :title %>
-  <%= text_input f, :title %>
-  <%= error_tag f, :title %>
-
-  <%= label f, :description %>
-  <%= text_input f, :description %>
-  <%= error_tag f, :description %>
-
-  <%= label f, :start_date %>
-  <%= datetime_select f, :start_date %>
-  <%= error_tag f, :start_date %>
-
-  <%= label f, :end_date %>
-  <%= datetime_select f, :end_date %>
-  <%= error_tag f, :end_date %>
-
-  <%= label f, :budget %>
-  <%= number_input f, :budget, step: "any" %>
-  <%= error_tag f, :budget %>
-
-  <div>
-    <%= submit "Save" %>
-  </div>
-</.form>
+    <%= text_input f, :description, class: "focus:outline-none mb-8 textarea textarea-bordered textarea-primary rounded-sm w-full", placeholder: "Description..." %>
+    <%= error_tag f, :description %>
+    <div class="mb-4 ">
+      <%= label f, :start_date %>
+      <%= datetime_select f, :start_date, class: " select w-full max-w-xs" %>
+      <%= error_tag f, :start_date %>
+    </div>
+    <div class="mb-4 ">
+      <%= label f, :end_date %>
+      <%= datetime_select f, :end_date %>
+      <%= error_tag f, :end_date %>
+    </div>
+    <div class="">
+      <%= number_input f, :budget, class: "focus:outline-none mb-8 input input-bordered input-primary rounded-sm w-full ", placeholder: "Budget ..." %>
+      <%= error_tag f, :budget %>
+    </div>
+    <div>
+      <%= submit "Save", class: "btn btn-sm btn-outline btn-primary rounded-sm " %>
+      <span><%= link "Back", to: Routes.project_path(@conn, :index), class: "btn btn-sm rounded-sm py-2 px-4 btn-outline" %></span>
+    </div>
+  </.form>
+</section>

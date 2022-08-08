@@ -10,8 +10,17 @@
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
   <body>
-    <header>
-    </header>
+    <div class="navbar bg-base-100 border-b-2 border-blue-500">
+      <div class="navbar-start">
+        <a href="/" class="btn btn-ghost uppercase text-xl">Projety</a>
+      </div>
+      <div class="navbar-end">
+        <%= link "New", to: Routes.project_path(@conn, :new), class: "btn btn-outline btn-sm rounded-sm mr-2" %>
+        <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
+          <a><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home), class: "font-bold hover:blue-300" %></a>
+        <% end %>
+      </div>
+    </div>
     <%= @inner_content %>
   </body>
 </html>
