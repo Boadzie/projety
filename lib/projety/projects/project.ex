@@ -5,8 +5,8 @@ defmodule Projety.Projects.Project do
   schema "projects" do
     field :budget, :decimal
     field :description, :string
-    field :end_date, :naive_datetime
-    field :start_date, :naive_datetime
+    field :end_date, :date
+    field :start_date, :date
     field :title, :string
 
     timestamps()

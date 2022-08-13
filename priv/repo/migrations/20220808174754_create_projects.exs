@@ -3,11 +3,11 @@ defmodule Projety.Repo.Migrations.CreateProjects do
 
   def change do
     create table(:projects) do
-      add :title, :string
-      add :description, :string
-      add :start_date, :naive_datetime
-      add :end_date, :naive_datetime
-      add :budget, :decimal
+      add(:title, :string)
+      add(:description, :string)
+      add(:start_date, :date)
+      add(:end_date, :date)
+      add(:budget, :decimal)
 
       timestamps()
     end

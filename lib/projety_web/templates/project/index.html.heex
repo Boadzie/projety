@@ -15,12 +15,12 @@
       <tbody>
         <%= for project <- @projects do %>
           <tr class="font-medium bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <td class="px-6 py-4 font-medium text-gray-900 text-md whitespace-nowrap dark:text-white"><%= project.title %></td>
-            <td class="px-6 py-4"><%= project.description %></td>
-            <td class="px-6 py-4"><%= project.start_date %></td>
-            <td class="px-6 py-4"><%= project.end_date %></td>
-            <td class="px-6 py-4"><%= convert_number(project.budget) %></td>
-            <td class="px-6 py-4">
+            <td class="px-2 py-4 font-bold text-gray-500 uppercase text-md first-letter:font-black first-letter:text-2xl"><%= project.title %></td>
+            <td class="px-2 py-4 text-md"><%= project.description %></td>
+            <td class="px-2 py-4 text-md"><%= project.start_date %></td>
+            <td class="px-2 py-4 text-md"><%= project.end_date %></td>
+            <td class="px-2 py-4 text-md"><%= convert_number(project.budget) %></td>
+            <td class="px-2 py-4 text-md">
               <span><%= link "Show", to: Routes.project_path(@conn, :show, project), class: "bg-sky-400 text-white p-2" %></span>
               <span><%= link "Edit", to: Routes.project_path(@conn, :edit, project), class: "bg-green-400 text-white p-2" %></span>
               <span><%= link "Delete", to: Routes.project_path(@conn, :delete, project), method: :delete, data: [confirm: "Are you sure?"], class: "bg-red-400 text-white p-2" %></span>
