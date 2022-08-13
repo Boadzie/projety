@@ -1,33 +1,10 @@
-<h1>Show Project</h1>
-
-<ul>
-
-  <li>
-    <strong>Title:</strong>
-    <%= @project.title %>
-  </li>
-
-  <li>
-    <strong>Description:</strong>
-    <%= @project.description %>
-  </li>
-
-  <li>
-    <strong>Start date:</strong>
-    <%= @project.start_date %>
-  </li>
-
-  <li>
-    <strong>End date:</strong>
-    <%= @project.end_date %>
-  </li>
-
-  <li>
-    <strong>Budget:</strong>
-    <%= @project.budget %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: Routes.project_path(@conn, :edit, @project) %></span> |
-<span><%= link "Back", to: Routes.project_path(@conn, :index) %></span>
+<section class="w-1/2 min-h-screen py-12 m-auto">
+  <div>
+    <h1 class="text-4xl font-medium"><%= @project.title %></h1>
+    <p class="my-4 text-2xl font-light"><%= @project.description %></p>
+    <p class="text-base"><%= @project.start_date %> | <%= @project.end_date %></p>
+    <p class="my-3 text-2xl"><%= convert_number(@project.budget) %></p>
+  </div>
+  <span><%= link "Edit", to: Routes.project_path(@conn, :edit, @project), class: "bg-red-400 text-white p-2" %></span> |
+  <span><%= link "Back", to: Routes.project_path(@conn, :index), class: "bg-sky-400 text-white p-2" %></span>
+</section>
