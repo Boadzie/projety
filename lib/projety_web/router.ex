@@ -27,17 +27,18 @@ defmodule ProjetyWeb.Router do
   end
 
   scope "/", ProjetyWeb do
-    pipe_through :browser
+    pipe_through [:browser, :protected]
 
-    get "/", PageController, :index
-    get "/projects", ProjectController, :index
-    get "/projects/:id/", ProjectController, :show
+    resources "/projects", ProjectController, except: [:index, :show]
   end
 
   scope "/", ProjetyWeb do
-    pipe_through [:browser, :protected]
+    pipe_through :browser
 
-    resources "/projects", ProjectController
+    get "/", PageController, :index
+    resources "/projects", ProjectController, only: [:index, :show]
+    # get "/projects", ProjectController, :index
+    # get "/projects/:id/", ProjectController, :show
   end
 
   # Other scopes may use custom stacks.
