@@ -18,7 +18,7 @@ defmodule Projety.Projects do
 
   """
   def list_projects do
-    Repo.all(Project)
+    Repo.all(from Project, order_by: [desc: :id])
   end
 
   @doc """

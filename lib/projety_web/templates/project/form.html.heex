@@ -11,6 +11,10 @@
     </div>
     <%= text_input f, :description, class: "focus:outline-none mb-8 textarea textarea-bordered textarea-primary rounded-sm w-full", placeholder: "Description..." %>
     <%= error_tag f, :description %>
+    <div class="form-control">
+      <%= text_input f, :img_url, class: "focus:outline-none mb-8 input input-bordered input-primary rounded-sm w-full", placeholder: "Image url ..." %>
+      <%= error_tag f, :img_url %>
+    </div>
     <div class="flex w-full space-x-4">
       <div class="w-1/2 mb-4">
         <%= label f, :start_date %>

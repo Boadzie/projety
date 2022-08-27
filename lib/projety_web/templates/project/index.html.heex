@@ -6,7 +6,9 @@
   <div class="grid grid-cols-1 gap-4 mt-2 lg:grid-cols-3">
     <%= for project <- @projects do %>
       <div class="rounded-sm shadow-xl card w-96 bg-base-100">
-        <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+        <figure>
+          <img class="w-full h-72" src={project.img_url} alt="Shoes" />
+        </figure>
         <div class="card-body">
           <h2 class="text-3xl text-gray-600 card-title"><%= project.title %></h2>
           <div>
