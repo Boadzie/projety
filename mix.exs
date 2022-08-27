@@ -50,7 +50,8 @@ defmodule Projety.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
-      {:number, "~> 1.0.3", override: true}
+      {:number, "~> 1.0.3", override: true},
+      {:pow, "~> 1.0.27"}
     ]
   end
 

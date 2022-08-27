@@ -55,6 +55,11 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :projety, :pow,
+  user: Projety.Users.User,
+  repo: Projety.Repo,
+  web_module: ProjetyWeb
+
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 

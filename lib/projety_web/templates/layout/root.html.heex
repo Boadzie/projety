@@ -10,12 +10,18 @@
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
   <body>
-    <div class="navbar bg-base-100 border-b-2 border-blue-500">
+    <div class="border-b-2 border-blue-500 navbar bg-base-100">
       <div class="navbar-start">
-        <a href="/" class="btn btn-ghost uppercase text-xl">Projety</a>
+        <a href="/" class="text-xl uppercase btn btn-ghost">Projety</a>
       </div>
-      <div class="navbar-end">
-        <%= link "New", to: Routes.project_path(@conn, :new), class: "btn btn-outline btn-sm rounded-sm mr-2" %>
+      <div class="space-x-2 navbar-end last:font-bold">
+        <%= if Pow.Plug.current_user(@conn) do %>
+          <%= link "Sign Out", to: Routes.pow_session_path(@conn, :delete), method: :delete, class: "mr-2 btn btn-outline btn-sm rounded-sm mr-2"  %>
+          <%= @current_user.email %>
+        <% else %>
+          <%= link "Register", to: Routes.pow_registration_path(@conn, :new), class: "mr-2 btn btn-outline btn-sm rounded-sm mr-2" %>
+          <%= link "Sign In", to: Routes.pow_session_path(@conn, :new), class: "mr-2 btn btn-outline btn-sm rounded-sm mr-2" %>
+        <% end %>
         <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
           <a><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home), class: "font-bold hover:blue-300" %></a>
         <% end %>
