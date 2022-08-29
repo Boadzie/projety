@@ -19,8 +19,10 @@
           <p class="my-2"><%= project.description %></p>
           <div class="justify-start card-actions">
             <%= link "Show", to: Routes.project_path(@conn, :show, project), class: "bg-primary text-white p-2" %>
-            <%= link "Edit", to: Routes.project_path(@conn, :edit, project), class: "bg-green-400 text-white p-2" %>
-            <%= link "Delete", to: Routes.project_path(@conn, :delete, project), method: :delete, data: [confirm: "Are you sure?"], class: "bg-red-400 text-white p-2" %>
+            <%= if Pow.Plug.current_user(@conn) do %>
+              <%= link "Edit", to: Routes.project_path(@conn, :edit, project), class: "bg-green-400 text-white p-2" %>
+              <%= link "Delete", to: Routes.project_path(@conn, :delete, project), method: :delete, data: [confirm: "Are you sure?"], class: "bg-red-400 text-white p-2" %>
+            <% end %>
           </div>
         </div>
       </div>
