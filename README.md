@@ -1,5 +1,9 @@
 # Projety
 
+> Projety Mangement App build with Elixir Phoenix and Taiwindcss
+
+![projety](projety-app.gif)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
